@@ -165,7 +165,7 @@
     <span>Palavra + guia grátis</span><span class="arr">→</span>
     <span>Roteiro (roteiro.json)</span><span class="arr">→</span>
     <span>Capa pelo Codex</span><span class="arr">→</span>
-    <span>Render dos PNGs</span><span class="arr">→</span>
+    <span>Montagem das imagens</span><span class="arr">→</span>
     <span>Checagem</span><span class="arr">→</span>
     <span>Sua aprovação</span><span class="arr">→</span>
     <span>Postagem no Metricool</span>
@@ -177,12 +177,16 @@
   <h2>O que precisa estar na máquina</h2>
   <p class="sub">Sem chave de API paga. A arte sai pela sua assinatura do ChatGPT.</p>
   <div class="grid g3">
-    <div class="card"><h3>Node.js 18+ (com npm) e Python 3</h3><p>Node.js é o programa que monta as imagens; o npm instala a peça que ele usa (instalação em nodejs.org, ou <code>brew install node</code> no Mac). O Python faz a checagem e chama o Codex; o Pillow, um complemento do Python, mede se a capa saiu amarelada. Confira e instale com os comandos abaixo.</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version
+    <div class="card"><h3>Node.js 18+ (com npm) e Python 3</h3><p>Node.js é o programa que monta as imagens; o npm instala a peça que ele usa (versão 18 ou mais nova: no Ubuntu, <code>sudo snap install node --classic</code>; no Mac, <code>brew install node</code>; ou nodejs.org). O Python faz a checagem e chama o Codex; o Pillow, um complemento do Python, mede se a capa saiu amarelada. Confira e instale com os comandos abaixo (a 2ª linha é a do Ubuntu; no Mac, use a 3ª).</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version
+<span class="k">sudo apt install</span> python3-pil
 <span class="k">python3</span> -m pip install pillow</pre></div>
-    <div class="card"><h3>Um Chromium</h3><p>Chromium é um navegador; o sistema o usa sem janela, por trás, para desenhar cada imagem. Se você não tem, o primeiro comando instala. No Mac com o Google Chrome instalado, não precisa de nada: o sistema o encontra sozinho.</p><pre><span class="k">npx</span> playwright install chromium
+    <div class="card"><h3>Um Chromium</h3><p>Chromium é um navegador; o sistema o usa sem janela, por trás, para desenhar cada imagem. Se você não tem, o primeiro comando instala (se ele perguntar "Ok to proceed?", responda <code>y</code>). No Ubuntu, o segundo instala as bibliotecas que o navegador usa. No Mac com o Google Chrome instalado, não precisa de nada: o sistema o encontra sozinho.</p><pre><span class="k">npx</span> playwright install chromium
+<span class="k">sudo npx</span> playwright install-deps chromium
 <span class="k">export</span> CHROME=<span class="s">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span></pre></div>
     <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code roda a skill (instalação em <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). O Codex (programa de terminal da OpenAI: <code>npm i -g @openai/codex</code> e depois <code>codex login</code>) desenha a capa pela sua conta do ChatGPT. É opcional: sem ele, sai uma capa só com letras.</p><pre><span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
-    <div class="card"><h3>Só para postar: gh + Metricool (Linux ou WSL)</h3><p>A postagem automática roda no Linux ou no WSL; no Mac, poste as imagens à mão. O Metricool (agendador de posts) precisa das imagens num link público: o script as coloca num repositório público seu no GitHub, pelo <code>gh</code>. O Metricool tem de estar ligado ao Claude Code como conector (MCP: o jeito de o Claude usar um serviço de fora, configurado com <code>/mcp</code>). Sem isso, baixe as imagens e poste pelo celular.</p><pre><span class="k">gh</span> auth status</pre></div>
+    <div class="card"><h3>Só para postar: gh + Metricool (Linux ou WSL)</h3><p>A postagem automática roda no Linux ou no WSL; no Mac, poste as imagens à mão. O Metricool (agendador de posts) precisa das imagens num link público: o script as coloca num repositório público seu no GitHub (uma pasta de arquivos na internet), pelo <code>gh</code>, o programa do GitHub para o terminal. Instale, entre na sua conta e crie o repositório com os comandos abaixo. O Metricool tem de estar ligado ao Claude Code como conector (MCP: o jeito de o Claude usar um serviço de fora, configurado com <code>/mcp</code>). Sem isso, baixe as imagens e poste pelo celular.</p><pre><span class="k">sudo apt install</span> gh
+<span class="k">gh</span> auth login
+<span class="k">gh</span> repo create carrossel-imagens --public</pre></div>
   </div>
 </div></section>
 
@@ -201,7 +205,7 @@
 
   <div class="step"><div class="b">2</div><div>
     <h3>Ligue a skill no Claude Code e troque a marca</h3>
-    <p>O comando cria a pasta de skills (se não existir) e um atalho para o projeto. O <code>PERFIL.md</code> vem com a marca do INEMA (perfil, nome, fecho e hashtags): troque tudo pela sua antes do primeiro carrossel, ou peça ao Claude: "preencha o PERFIL.md comigo".</p>
+    <p>O comando cria a pasta de skills (se não existir) e um atalho para o projeto. O <code>PERFIL.md</code> vem com a marca do INEMA (perfil, nome, fecho e hashtags): troque tudo pela sua antes do primeiro carrossel, ou peça ao Claude: "preencha o PERFIL.md comigo". O <code>SKILL.md</code> (o passo a passo que o Claude segue) também cita a conta do INEMA na postagem; vale o que estiver no seu PERFIL.md.</p>
 <pre><span class="k">mkdir -p</span> ~/.claude/skills
 <span class="k">ln -s</span> ~/projetos/carrossel-inema ~/.claude/skills/carrossel-inema</pre>
   </div></div>
@@ -230,8 +234,8 @@
 
   <div class="step"><div class="b">6</div><div>
     <h3>Poste pelo Metricool (opcional, ainda não testado)</h3>
-    <p>Primeiro uso: o mais simples é baixar as imagens de <code>$PASTA/slides/</code> e postar pelo celular. A postagem automática ainda não foi testada e vem configurada para a conta do INEMA. Para a sua, defina antes o seu repositório público no GitHub, o nome do conector do Metricool e a sua marca no Metricool; o script usa essas três informações nas duas linhas. O padrão é rascunho: nada vai ao ar sem <code>AO_VIVO=1</code>.</p>
-<pre><span class="k">export</span> REPO=voce/seu-repo CONECTOR=metricool MARCA=sua.marca
+    <p>Primeiro uso: o mais simples é baixar as imagens de <code>$PASTA/slides/</code> e postar pelo celular. A postagem automática ainda não foi testada e vem configurada para a conta do INEMA. Para a sua, defina antes o seu repositório público no GitHub, o nome do conector do Metricool e a sua marca no Metricool; o script usa essas três informações nas duas linhas. O padrão é rascunho: nada vai ao ar sem <code>AO_VIVO=1</code>. Por baixo, o script abre o Claude Code sem janela para falar com o Metricool: usa a sua assinatura e pode levar alguns minutos.</p>
+<pre><span class="k">export</span> REPO=voce/carrossel-imagens CONECTOR=metricool MARCA=sua.marca
 <span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt
 <span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt</pre>
   </div></div>
@@ -240,7 +244,7 @@
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplos</span>
   <h2>Um carrossel feito pelo sistema</h2>
-  <p class="sub">Tema "6 tarefas chatas que um agente de IA já faz por você": capa do Codex, 6 slides e o fecho.</p>
+  <p class="sub">Tema "6 tarefas chatas que um agente de IA já faz por você": capa do Codex, 6 slides e o fecho. Todas as imagens deste exemplo foram geradas em português.</p>
   <div class="ex">
     <figure><img src="assets/exemplo/01-capa.jpg" alt="Capa com o título desenhado pelo Codex e braços robóticos organizando papéis" loading="lazy"><figcaption>Capa: título desenhado na arte, luz neutra, número e assunto pelo nome.</figcaption></figure>
     <figure><img src="assets/exemplo/05-slide.jpg" alt="Slide 4: agendar em sistema antigo" loading="lazy"><figcaption>Slide: número grande, título, texto curto com o trecho-chave em negrito.</figcaption></figure>
@@ -261,7 +265,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="pill">Node.js + Chromium</div><div class="pill">Python</div><div class="pill">Codex image_gen</div><div class="pill">Metricool</div>
+    <div class="pill">Node.js + Chromium</div><div class="pill">Python</div><div class="pill">Arte pelo Codex</div><div class="pill">Metricool</div>
     <p style="margin-top:18px">carrossel-inema · código MIT ·
       <a href="https://github.com/inematds/carrossel-inema">inematds/carrossel-inema</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>

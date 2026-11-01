@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>carrossel-inema — Instagram carousels ready to post, from topic to publishing</title>
-<meta name="description" content="A Claude Code skill that creates Instagram, Facebook, and TikTok carousels: script, cover by Codex, 1080x1350 slides, stories, and checks before posting.">
+<title>carrossel-inema — ready-to-post Instagram carousels, from topic to post</title>
+<meta name="description" content="A Claude Code skill that creates Instagram, Facebook, and TikTok carousels: script, Codex-designed cover, 1080x1350 slides, stories, and checks before posting.">
 <link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/carrossel-inema/guia/">
 <link rel="alternate" hreflang="en" href="https://inematds.github.io/carrossel-inema/guia/en/">
 <link rel="alternate" hreflang="es" href="https://inematds.github.io/carrossel-inema/guia/es/">
@@ -128,61 +128,65 @@
   <div class="wrap">
     <div>
       <span class="chip">Skill for Claude Code · Instagram · TikTok</span>
-      <h1>Your carousel <span class="amb">ready</span>, from topic to publishing</h1>
-      <p class="lead">You choose the topic. Claude writes the script, Codex designs the cover, the system builds the slides and stories, and checks everything before you approve it.</p>
+      <h1>Your carousel <span class="amb">ready</span>, from topic to post</h1>
+      <p class="lead">You name the topic. Claude writes the script, Codex designs the cover, the system assembles the slides and stories, and checks everything before you approve it.</p>
       <div class="cta">
         <a class="btn" href="#guia">Start the guide</a>
         <a class="btn ghost" href="https://github.com/inematds/carrossel-inema" target="_blank" rel="noopener">View on GitHub</a>
       </div>
     </div>
-    <figure><img src="../assets/banner-en.jpg" alt="carrossel-inema banner: carousel ready to post, from topic to publishing"></figure>
+    <figure><img src="../assets/banner-en.jpg" alt="carrossel-inema banner: a ready-to-post carousel, from topic to post"></figure>
   </div>
 </header>
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">In short</span>
-  <p>carrossel-inema is a skill (a set of instructions and scripts) for Claude Code that creates Instagram and TikTok carousels; the same images work for Facebook. It is for people who want to post regularly without opening a design program. You provide the topic; it delivers the cover, 5 to 10 slides with one idea each, a final slide that says "comment KEYWORD," and 3 stories, all in the right size. Before showing them, it checks whether any text is cut off or too small. You need a Linux or Mac computer (on Windows, use WSL, the Linux environment that runs inside Windows) with Node.js, Python, and Claude Code; for an illustrated cover, you need Codex signed into your ChatGPT account. Text is in Portuguese by default; change the language in PERFIL.md.</p>
+  <p>carrossel-inema is a skill (a set of instructions and scripts) for Claude Code that creates Instagram and TikTok carousels; the same images work for Facebook. It is for people who want to post regularly without opening a design program. You provide the topic; it delivers the cover, 5 to 10 slides with one idea each, a final slide with “comment KEYWORD,” and 3 stories, all in the right size. Before showing you the results, it checks whether any text was cut off or is too small. To use it, you need a Linux or Mac computer (on Windows, use WSL, the Linux environment that runs inside Windows) with Node.js, Python, and Claude Code; for an illustrated cover, you also need Codex signed in to your ChatGPT account. Text is in Portuguese by default; change the language in PERFIL.md.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
   <span class="chip">What it is</span>
   <h2>A complete carousel without opening Canva</h2>
   <p class="sub">Script, artwork, slides, stories, and checks in one place. You just approve it.</p>
-  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="The six main steps: topic, script, cover, slides, stories, and publishing" loading="lazy" style="width:100%;display:block"></figure>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="The six main steps: topic, script, cover, slides, stories, and posting" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🖼️ A cover that stops the scroll</h3><p>Codex designs the cover with the title written into the image. The check asks for a number, names the topic, uses no more than 4 lines, and measures whether the photo looks yellowish.</p></div>
-    <div class="card"><h3>🧱 Clean slides, one idea each</h3><p>A large number, title, 2 or 3 sentences, and the key passage in bold, sized for the feed (1080×1350). If the text does not fit, the font shrinks and the report lets you know.</p></div>
-    <div class="card"><h3>✅ Nothing goes live without you</h3><p>It shows you all the images and the caption, then waits for your "approved." Each correction you make becomes a rule in PERFIL.md, so you do not have to repeat it.</p></div>
+    <div class="card"><h3>🖼️ A cover that stops the scroll</h3><p>Codex designs the cover with the title written inside the image. The check requires a number, the topic spelled out, and no more than 4 lines, and measures whether the photo came out yellowish.</p></div>
+    <div class="card"><h3>🧱 Clean slides, one idea each</h3><p>A large number, title, 2 or 3 sentences, and the key passage in bold, sized for the feed (1080×1350). If the text does not fit, the font shrinks and the report flags it.</p></div>
+    <div class="card"><h3>✅ Nothing goes live without you</h3><p>It shows you all the images and the caption, then waits for your “approved.” Each correction becomes a rule in PERFIL.md, so you do not have to repeat it.</p></div>
   </div>
 </div></section>
 
 <section id="fluxo"><div class="wrap">
   <span class="chip">How it works</span>
   <h2>From topic to post in 8 steps</h2>
-  <p class="sub">Two of these steps are gates: the automatic check and your approval. Steps involving you happen in the conversation with Claude; the rest are scripts. The "keyword" is what you ask people to comment (e.g., GUIA); anyone who comments receives a link from you to one of your free resources (a page, a PDF). The skill writes the invitation; sending the link to commenters is up to you or your messaging tool.</p>
+  <p class="sub">Two of these steps are checkpoints: the automatic check and your approval. The steps involving you happen in the conversation with Claude; the rest are handled by scripts. The “keyword” is what you ask people to comment (e.g., GUIA); anyone who comments gets a link from you to one of your free resources (a page, a PDF). The skill writes the invitation; sending the link to people who commented is up to you or your messaging tool.</p>
   <div class="flow">
     <span>Topic</span><span class="arr">→</span>
     <span>Keyword + free guide</span><span class="arr">→</span>
     <span>Script (roteiro.json)</span><span class="arr">→</span>
     <span>Cover by Codex</span><span class="arr">→</span>
-    <span>PNG rendering</span><span class="arr">→</span>
+    <span>Image assembly</span><span class="arr">→</span>
     <span>Check</span><span class="arr">→</span>
     <span>Your approval</span><span class="arr">→</span>
-    <span>Post on Metricool</span>
+    <span>Posting on Metricool</span>
   </div>
 </div></section>
 
 <section id="pre"><div class="wrap">
   <span class="chip">Prerequisites</span>
-  <h2>What needs to be installed</h2>
-  <p class="sub">No paid API key. Artwork is created through your ChatGPT subscription.</p>
+  <h2>What needs to be on your machine</h2>
+  <p class="sub">No paid API key required. Artwork is created through your ChatGPT subscription.</p>
   <div class="grid g3">
-    <div class="card"><h3>Node.js 18+ (with npm) and Python 3</h3><p>Node.js is the program that builds the images; npm installs the package it uses (download from nodejs.org, or run <code>brew install node</code> on Mac). Python performs the checks and calls Codex; Pillow, a Python package, measures whether the cover looks yellowish. Check and install with the commands below.</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version
+    <div class="card"><h3>Node.js 18+ (with npm) and Python 3</h3><p>Node.js is the program that assembles the images; npm installs the component it uses (version 18 or newer: on Ubuntu, <code>sudo snap install node --classic</code>; on Mac, <code>brew install node</code>; or nodejs.org). Python runs the checks and calls Codex; Pillow, a Python add-on, measures whether the cover came out yellowish. Check and install with the commands below (the 2nd line is for Ubuntu; on Mac, use the 3rd).</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version
+<span class="k">sudo apt install</span> python3-pil
 <span class="k">python3</span> -m pip install pillow</pre></div>
-    <div class="card"><h3>Chromium</h3><p>Chromium is a browser; the system uses it without a window, in the background, to draw each image. If it is not installed, the first command installs it. On Mac with Google Chrome installed, you do not need to do anything: the system finds it automatically.</p><pre><span class="k">npx</span> playwright install chromium
+    <div class="card"><h3>Chromium</h3><p>Chromium is a browser; the system uses it behind the scenes without opening a window to draw each image. If you do not have it, the first command installs it (if it asks “Ok to proceed?”, answer <code>y</code>). On Ubuntu, the second command installs the libraries the browser uses. On Mac with Google Chrome installed, you do not need to do anything: the system finds it automatically.</p><pre><span class="k">npx</span> playwright install chromium
+<span class="k">sudo npx</span> playwright install-deps chromium
 <span class="k">export</span> CHROME=<span class="s">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span></pre></div>
-    <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code runs the skill (install it from <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). Codex (OpenAI's terminal program: <code>npm i -g @openai/codex</code>, then <code>codex login</code>) designs the cover through your ChatGPT account. It is optional: without it, the cover uses text only.</p><pre><span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
-    <div class="card"><h3>For posting only: gh + Metricool (Linux or WSL)</h3><p>Automatic posting runs on Linux or WSL; on Mac, post the images manually. Metricool (a post scheduler) needs the images at a public link: the script puts them in your public GitHub repository using <code>gh</code>. Metricool must be connected to Claude Code as a connector (MCP: how Claude uses an external service, configured with <code>/mcp</code>). Without this, download the images and post them from your phone.</p><pre><span class="k">gh</span> auth status</pre></div>
+    <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code runs the skill (install it from <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). Codex (OpenAI’s terminal program: <code>npm i -g @openai/codex</code>, then <code>codex login</code>) designs the cover through your ChatGPT account. It is optional: without it, the cover uses text only.</p><pre><span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
+    <div class="card"><h3>For posting only: gh + Metricool (Linux or WSL)</h3><p>Automatic posting runs on Linux or WSL; on Mac, post the images manually. Metricool (a post scheduler) needs the images at a public link: the script puts them in your public GitHub repository (a folder of files on the internet), using <code>gh</code>, GitHub’s terminal program. Install it, sign in to your account, and create the repository with the commands below. Metricool must be connected to Claude Code as a connector (MCP: the way Claude uses an external service, configured with <code>/mcp</code>). Without this, download the images and post from your phone.</p><pre><span class="k">sudo apt install</span> gh
+<span class="k">gh</span> auth login
+<span class="k">gh</span> repo create carrossel-imagens --public</pre></div>
   </div>
 </div></section>
 
@@ -192,29 +196,29 @@
   <p class="sub">Copyable commands, in order.</p>
 
   <div class="step"><div class="b">1</div><div>
-    <h3>Install and run the self-test</h3>
-    <p>Downloads the project, installs its only dependency, and generates a test carousel. It should finish with SELFTEST PASS ("self-test passed").</p>
+    <h3>Install it and run the self-test</h3>
+    <p>Downloads the project, installs its only dependency, and generates a test carousel. It must finish with SELFTEST PASS (“self-test passed”).</p>
 <pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/carrossel-inema</span> ~/projetos/carrossel-inema
 <span class="k">cd</span> ~/projetos/carrossel-inema
 <span class="k">bash</span> setup.sh</pre>
   </div></div>
 
   <div class="step"><div class="b">2</div><div>
-    <h3>Connect the skill to Claude Code and change the brand</h3>
-    <p>The command creates the skills folder (if it does not exist) and a shortcut to the project. <code>PERFIL.md</code> comes with INEMA's brand (profile, name, closing, and hashtags): replace everything with your own before the first carousel, or ask Claude: "fill in PERFIL.md with me."</p>
+    <h3>Enable the skill in Claude Code and change the brand</h3>
+    <p>The command creates the skills folder (if it does not exist) and a shortcut to the project. <code>PERFIL.md</code> comes with INEMA’s brand details (profile, name, sign-off, and hashtags): replace them all with yours before the first carousel, or ask Claude: “fill out PERFIL.md with me.” <code>SKILL.md</code> (the step-by-step instructions Claude follows) also mentions INEMA’s account for posting; what matters is what is in your PERFIL.md.</p>
 <pre><span class="k">mkdir -p</span> ~/.claude/skills
 <span class="k">ln -s</span> ~/projetos/carrossel-inema ~/.claude/skills/carrossel-inema</pre>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Request a carousel</h3>
-    <p>In Claude Code, give it a topic (or ask "what should the next carousel be about?"). It suggests 3 cover titles and shows you the script before generating any images. The skill creates the work folder automatically at <code>~/projetos/output/carrossel-inema/&lt;date&gt;-&lt;topic&gt;/</code>, with <code>roteiro.json</code> (the text for each slide), <code>legenda.txt</code> (the text that accompanies the post), and a <code>slides/</code> folder containing the images.</p>
-<pre><span class="s">make a carousel about AI agents for small businesses</span></pre>
+    <p>In Claude Code, name the topic (or ask “what should the next carousel be about?”). It suggests 3 cover titles and shows you the script before generating any images. The skill automatically creates the work folder at <code>~/projetos/output/carrossel-inema/&lt;date&gt;-&lt;topic&gt;/</code>, with <code>roteiro.json</code> (the text for each slide), <code>legenda.txt</code> (the text that goes with the post), and a <code>slides/</code> folder containing the images.</p>
+<pre><span class="s">make a carousel about…</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
-    <h3>Cover, images, and checks (the skill does this)</h3>
-    <p>The skill runs these commands for you. They are shown here for anyone who wants to run them manually from the project folder; <code>PASTA</code> is the folder from step 3. Codex designs the cover with the title in it; the skill asks you to check the artwork text and only continues after you say OK.</p>
+    <h3>Cover, images, and checks (handled by the skill)</h3>
+    <p>The skill runs these commands for you. They are shown here for anyone who wants to run them manually, from inside the project folder; <code>PASTA</code> is the folder from step 3. Codex designs the cover with the title inside; the skill asks you to check the artwork text and only continues after you say OK.</p>
 <pre><span class="k">cd</span> ~/projetos/carrossel-inema
 <span class="k">PASTA</span>=~/projetos/output/carrossel-inema/2026-11-01-agentes
 <span class="k">python3</span> scripts/capa.py $PASTA/roteiro.json --estilo 3d --cena <span class="s">"robotic arms organizing papers"</span>
@@ -224,14 +228,14 @@
 
   <div class="step"><div class="b">5</div><div>
     <h3>Approve</h3>
-    <p>It shows the slides side by side and the caption. Approve or request a change; each change becomes a rule in PERFIL.md. The finished images are in <code>$PASTA/slides/</code> and are ready to post manually.</p>
+    <p>It shows the images side by side and the caption. Approve or request an adjustment; each adjustment becomes a rule in PERFIL.md. The finished images are in <code>$PASTA/slides/</code> and can already be posted manually.</p>
 <pre><span class="s">approved</span></pre>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
     <h3>Post with Metricool (optional, not tested yet)</h3>
-    <p>For the first use, the simplest option is to download the images from <code>$PASTA/slides/</code> and post them from your phone. Automatic posting has not been tested yet and is configured for INEMA's account. For yours, first set your public GitHub repository, the name of the Metricool connector, and your brand in Metricool; the script uses this information in the two lines below. The default is a draft: nothing goes live without <code>AO_VIVO=1</code>.</p>
-<pre><span class="k">export</span> REPO=you/your-repo CONECTOR=metricool MARCA=your.brand
+    <p>For the first use, the simplest option is to download the images from <code>$PASTA/slides/</code> and post from your phone. Automatic posting has not been tested yet and is configured for INEMA’s account. For yours, first set your public GitHub repository, the name of the Metricool connector, and your Metricool brand; the script uses this information in both lines. The default is a draft: nothing goes live without <code>AO_VIVO=1</code>. Behind the scenes, the script opens Claude Code without a window to communicate with Metricool: it uses your subscription and may take a few minutes.</p>
+<pre><span class="k">export</span> REPO=you/carrossel-imagens CONECTOR=metricool MARCA=your.brand
 <span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt
 <span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt</pre>
   </div></div>
@@ -239,30 +243,30 @@
 
 <section id="exemplos"><div class="wrap">
   <span class="chip">Examples</span>
-  <h2>A carousel created by the system</h2>
-  <p class="sub">Topic: "6 boring tasks an AI agent already does for you": Codex cover, 6 slides, and the closing slide.</p>
+  <h2>A carousel made by the system</h2>
+  <p class="sub">Topic: “6 tedious tasks an AI agent already does for you”: Codex cover, 6 slides, and the closing slide. All images in this example were generated in Portuguese.</p>
   <div class="ex">
-    <figure><img src="../assets/exemplo/01-capa.jpg" alt="Cover with the title designed by Codex and robotic arms organizing papers" loading="lazy"><figcaption>Cover: title built into the artwork, neutral lighting, a number, and a clearly named topic. (example generated in Portuguese)</figcaption></figure>
+    <figure><img src="../assets/exemplo/01-capa.jpg" alt="Cover with the title designed by Codex and robotic arms organizing papers" loading="lazy"><figcaption>Cover: title designed into the artwork, neutral light, number, and topic spelled out.</figcaption></figure>
     <figure><img src="../assets/exemplo/05-slide.jpg" alt="Slide 4: scheduling in an old system" loading="lazy"><figcaption>Slide: large number, title, short text with the key passage in bold.</figcaption></figure>
     <figure><img src="../assets/exemplo/08-fecho.jpg" alt="Final slide with the word AGENTE highlighted" loading="lazy"><figcaption>Closing slide: the word to comment, in large type.</figcaption></figure>
-    <figure><img src="../assets/exemplo/story-1.jpg" alt="Story showing the cover and directing viewers to the post" loading="lazy"><figcaption>Story 1 of 3: shows the cover and directs viewers to the post.</figcaption></figure>
+    <figure><img src="../assets/exemplo/story-1.jpg" alt="Story showing the cover and inviting viewers to the post" loading="lazy"><figcaption>Story 1 of 3: shows the cover and directs people to the post.</figcaption></figure>
   </div>
-  <figure style="margin:22px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)"><img src="../assets/prancha-feed.jpg" alt="The carousel's 8 slides side by side" loading="lazy" style="width:100%;display:block"></figure>
+  <figure style="margin:22px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)"><img src="../assets/prancha-feed.jpg" alt="All 8 carousel slides side by side" loading="lazy" style="width:100%;display:block"></figure>
 </div></section>
 
 <section id="roadmap"><div class="wrap">
   <span class="chip">Roadmap</span>
   <h2>What comes next</h2>
   <p class="sub">What already works and what is still missing.</p>
-  <div class="phase"><div class="tag">1.0 ✔</div><div class="d"><strong>Script, cover, rendering, and checks</strong><span>Cover by Codex, slides and stories, reports on cut-off text and yellowish covers, self-test.</span></div></div>
+  <div class="phase"><div class="tag">1.0 ✔</div><div class="d"><strong>Script, cover, rendering, and checks</strong><span>Codex-designed cover, slides and stories, reports on cut-off text and yellowish covers, and self-test.</span></div></div>
   <div class="phase"><div class="tag">Next</div><div class="d"><strong>First real post</strong><span>Test publicar.sh as a draft in Metricool and adjust the carousel and story formats.</span></div></div>
-  <div class="phase"><div class="tag">Later</div><div class="d"><strong>Choose topics based on data</strong><span>Connect to the daily topic radar and the report on what has worked best on our channels.</span></div></div>
+  <div class="phase"><div class="tag">Later</div><div class="d"><strong>Data-informed topic selection</strong><span>Connect to the daily topic radar and the report on what has worked best on our channels.</span></div></div>
 </div></section>
 
 <footer>
   <div class="wrap">
-    <div class="pill">Node.js + Chromium</div><div class="pill">Python</div><div class="pill">Codex image_gen</div><div class="pill">Metricool</div>
-    <p style="margin-top:18px">carrossel-inema · MIT-licensed code ·
+    <div class="pill">Node.js + Chromium</div><div class="pill">Python</div><div class="pill">Artwork by Codex</div><div class="pill">Metricool</div>
+    <p style="margin-top:18px">carrossel-inema · MIT licensed ·
       <a href="https://github.com/inematds/carrossel-inema">inematds/carrossel-inema</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
   </div>

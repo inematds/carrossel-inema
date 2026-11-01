@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 falha() { echo "SELFTEST FAIL: $*"; exit 1; }
 
 command -v node >/dev/null || falha "Node.js não encontrado (precisa da versão 18 ou mais nova)"
+[ "$(node -p "process.versions.node.split('.')[0]")" -ge 18 ] || falha "Node.js $(node -v) é antigo: precisa da versão 18 ou mais nova"
 command -v python3 >/dev/null || falha "python3 não encontrado"
 command -v ffmpeg >/dev/null || echo "aviso: ffmpeg ausente (só faz falta para ajustar a capa gerada)"
 python3 -c "import PIL" 2>/dev/null || echo "aviso: Pillow ausente — sem ele a checagem não mede se a capa saiu amarelada (python3 -m pip install pillow)"
