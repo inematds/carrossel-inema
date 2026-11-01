@@ -24,7 +24,7 @@ Guia completo (landing + passo a passo): **https://inematds.github.io/carrossel-
 
 ## Instalar (uma vez)
 
-Precisa de Linux ou Mac com Node.js 18+, Python 3 e um Chromium (o do Playwright serve). Para a capa com arte: Codex CLI logado na sua conta ChatGPT (assinatura, sem chave de API).
+Precisa de Linux ou Mac com Node.js 18+, Python 3 (com Pillow: `python3 -m pip install pillow`) e um Chromium (`npx playwright install chromium`; no Mac, o Google Chrome instalado já serve). Para a capa com arte: Codex CLI logado na sua conta ChatGPT (assinatura, sem chave de API).
 
 ```bash
 git clone https://github.com/inematds/carrossel-inema ~/projetos/carrossel-inema
@@ -81,6 +81,7 @@ python3 scripts/capa.py meu/roteiro.json --estilo 3d --cena "..." # capa com art
 ## Limites
 
 - **`publicar.sh` vem configurado para a conta do INEMA** (repo `inematds/carrossel-inema`, conector `metricool-inematds`, marca `inema.tds`). Para a sua: `export REPO=voce/repo CONECTOR=<conector do Metricool> MARCA=<marca>` antes de rodar (vale para o rascunho e para o `AO_VIVO=1`); precisa do `gh` logado e do Metricool ligado ao Claude Code (MCP).
+- **`publicar.sh` só roda no Linux ou no WSL** (usa o `date` do Linux); no Mac, poste as imagens à mão.
 - **`publicar.sh` ainda não foi testado.** O formato de carrossel com várias imagens e de story no Metricool não foi conferido; o primeiro uso deve ser como rascunho, com o Nei olhando o planner.
 - Stories pelo Metricool dependem da conta Instagram ser profissional.
 - Fontes Sora e Inter: licença SIL Open Font License, incluídas em `assets/fonts/`.

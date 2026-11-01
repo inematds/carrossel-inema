@@ -87,7 +87,9 @@ def main():
             erros.append(f"capa aponta para {capa['imagem']}, que não existe")
         else:
             am = amarelado(arte)
-            if am is not None and am > 25 and not capa.get("cor_livre"):
+            if am is None:
+                avisos.append("Pillow ausente: não medi se a capa saiu amarelada (python3 -m pip install pillow)")
+            elif am is not None and am > 25 and not capa.get("cor_livre"):
                 erros.append(f"capa amarelada ({am:.0f}; limite 25): gerar de novo com luz neutra ou marcar capa.cor_livre=true")
             elif am is not None and am > 18:
                 avisos.append(f"capa puxando para o amarelo ({am:.0f}; ideal até 18)")

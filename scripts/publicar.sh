@@ -10,6 +10,7 @@
 #   Para a SUA conta: gh logado com escrita num repo público seu (REPO=voce/repo), Metricool ligado ao Claude Code
 #   como conector MCP (nome em CONECTOR) e a marca do Metricool em MARCA.
 set -uo pipefail
+date -d "today" >/dev/null 2>&1 || { echo "publicar.sh usa o date do Linux: rode no Linux ou no WSL (no Mac, poste as imagens à mão)"; exit 2; }
 export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"
 PASTA="$(realpath "$1")"; TXT="$(realpath "$2")"; QUANDO_IN="${3:-}"
 REPO="${REPO:-inematds/carrossel-inema}"

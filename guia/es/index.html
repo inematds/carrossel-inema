@@ -129,7 +129,7 @@
     <div>
       <span class="chip">Skill para Claude Code · Instagram · TikTok</span>
       <h1>Tu carrusel <span class="amb">listo</span>, del tema a la publicación</h1>
-      <p class="lead">Tú dices el tema. Claude escribe el guion, Codex diseña la portada, el sistema crea las diapositivas y las stories y revisa todo antes de que lo apruebes.</p>
+      <p class="lead">Dices el tema. Claude escribe el guion, Codex diseña la portada, el sistema monta las diapositivas y los stories y revisa todo antes de que lo apruebes.</p>
       <div class="cta">
         <a class="btn" href="#guia">Empezar la guía</a>
         <a class="btn ghost" href="https://github.com/inematds/carrossel-inema" target="_blank" rel="noopener">Ver en GitHub</a>
@@ -141,31 +141,31 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">En resumen</span>
-  <p>carrossel-inema es una skill (un conjunto de instrucciones y scripts) para Claude Code que crea carruseles para Instagram y TikTok; las mismas imágenes sirven para Facebook. Es para quienes quieren publicar con frecuencia sin abrir un programa de diseño. Tú das el tema y recibes la portada, de 5 a 10 diapositivas con una idea cada una, la diapositiva final con «comenta PALABRA» y 3 stories, todo en el tamaño adecuado. Antes de mostrártelo, revisa si algún texto quedó cortado o demasiado pequeño. Para usarlo necesitas una computadora Linux o Mac (en Windows, mediante WSL, el Linux que funciona dentro de Windows) con Node.js, Python y Claude Code; para la portada ilustrada, Codex con la sesión iniciada en tu cuenta de ChatGPT. Los textos se generan en portugués de forma predeterminada; el idioma se cambia en PERFIL.md.</p>
+  <p>carrossel-inema es una skill (un conjunto de instrucciones y scripts) para Claude Code que crea carruseles para Instagram y TikTok; las mismas imágenes sirven para Facebook. Es para quienes quieren publicar con frecuencia sin abrir un programa de diseño. Tú das el tema; el sistema entrega la portada, de 5 a 10 diapositivas con una idea cada una, la diapositiva final con «comenta PALABRA» y 3 stories, todo en el tamaño correcto. Antes de mostrarlo, comprueba si algún texto quedó cortado o demasiado pequeño. Para usarlo, necesitas un equipo con Linux o Mac (en Windows, mediante WSL, el Linux que funciona dentro de Windows) con Node.js, Python y Claude Code; para la portada con ilustración, necesitas Codex con la sesión iniciada en tu cuenta de ChatGPT. Los textos se generan en portugués de forma predeterminada; el idioma se cambia en PERFIL.md.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
   <span class="chip">Qué es</span>
   <h2>Un carrusel completo sin abrir Canva</h2>
-  <p class="sub">Guion, arte, diapositivas, stories y revisión en un mismo lugar. Tú solo apruebas.</p>
+  <p class="sub">Guion, arte, diapositivas, stories y revisión en un solo lugar. Tú solo apruebas.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Las seis etapas principales: tema, guion, portada, diapositivas, stories y publicación" loading="lazy" style="width:100%;display:block"></figure>
   <div class="grid g3">
-    <div class="card"><h3>🖼️ Una portada que detiene el dedo</h3><p>Codex diseña la portada con el título escrito dentro de la imagen. La revisión pide un número, menciona el tema por su nombre y limita el texto a 4 líneas como máximo; también mide si la foto quedó amarillenta.</p></div>
-    <div class="card"><h3>🧱 Diapositivas limpias, una idea por slide</h3><p>Número grande, título, 2 o 3 frases y el fragmento clave en negrita, en tamaño de feed (1080×1350). Si el texto no cabe, la letra se reduce y el informe lo indica.</p></div>
-    <div class="card"><h3>✅ Nada se publica sin ti</h3><p>Te muestra todas las imágenes y el texto del post, y espera tu «aprobado». Cada corrección tuya se convierte en una regla en PERFIL.md y no hace falta repetirla.</p></div>
+    <div class="card"><h3>🖼️ Una portada que capta la atención</h3><p>Codex diseña la portada con el título escrito dentro de la imagen. La revisión exige un número, el tema escrito con claridad y como máximo 4 líneas, y mide si la foto quedó amarillenta.</p></div>
+    <div class="card"><h3>🧱 Diapositivas claras, una idea por cada una</h3><p>Número grande, título, 2 o 3 frases y el fragmento clave en negrita, en tamaño de feed (1080×1350). Si el texto no cabe, la letra se reduce y el informe lo indica.</p></div>
+    <div class="card"><h3>✅ Nada se publica sin ti</h3><p>Te muestra todas las imágenes y el texto de la publicación y espera tu «aprobado». Cada corrección tuya se convierte en una regla en PERFIL.md y no hace falta repetirla.</p></div>
   </div>
 </div></section>
 
 <section id="fluxo"><div class="wrap">
   <span class="chip">Cómo funciona</span>
   <h2>Del tema a la publicación en 8 pasos</h2>
-  <p class="sub">Dos de estos pasos son puntos de control: la revisión automática y tu aprobación. Los pasos contigo ocurren en la conversación con Claude; el resto lo hace un script.</p>
+  <p class="sub">Dos de estos pasos son barreras: la revisión automática y tu aprobación. Los pasos en los que participas ocurren en la conversación con Claude; el resto son scripts. La «palabra» es lo que pides que comenten las personas (p. ej., GUIA); quien comenta recibe de ti el enlace a un material gratuito tuyo (una página, un PDF). La skill redacta la invitación; enviar el enlace a quienes comentaron queda a tu cargo o al de tu herramienta de mensajería.</p>
   <div class="flow">
     <span>Tema</span><span class="arr">→</span>
     <span>Palabra + guía gratis</span><span class="arr">→</span>
     <span>Guion (roteiro.json)</span><span class="arr">→</span>
     <span>Portada con Codex</span><span class="arr">→</span>
-    <span>Renderizado de PNG</span><span class="arr">→</span>
+    <span>Renderizado de los PNG</span><span class="arr">→</span>
     <span>Revisión</span><span class="arr">→</span>
     <span>Tu aprobación</span><span class="arr">→</span>
     <span>Publicación en Metricool</span>
@@ -173,72 +173,67 @@
 </div></section>
 
 <section id="pre"><div class="wrap">
-  <span class="chip">Requisitos previos</span>
-  <h2>Qué debe estar instalado en la máquina</h2>
-  <p class="sub">Sin claves de API de pago. El arte se genera con tu suscripción a ChatGPT.</p>
+  <span class="chip">Requisitos</span>
+  <h2>Qué necesitas en el equipo</h2>
+  <p class="sub">Sin claves de API de pago. La ilustración se genera con tu suscripción a ChatGPT.</p>
   <div class="grid g3">
-    <div class="card"><h3>Node.js 18+ (con npm) y Python 3</h3><p>Node.js es el programa que crea las imágenes; npm instala el componente que usa. Python realiza la revisión y llama a Codex.</p><pre><span class="c"># comprobar</span>
-<span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version</pre></div>
-    <div class="card"><h3>Un Chromium</h3><p>Chromium es un navegador; el sistema lo usa sin ventana, en segundo plano, para dibujar cada imagen. Si no lo tienes, el primer comando lo instala. En Mac, también sirve Google Chrome.</p><pre><span class="c"># instalar (Linux, Mac o WSL)</span>
-<span class="k">npx</span> playwright install chromium
-<span class="c"># o, en Mac, usar Chrome instalado</span>
+    <div class="card"><h3>Node.js 18+ (con npm) y Python 3</h3><p>Node.js es el programa que crea las imágenes; npm instala el componente que utiliza (se instala desde nodejs.org o con <code>brew install node</code> en Mac). Python realiza la revisión y llama a Codex; Pillow, un complemento de Python, mide si la portada quedó amarillenta. Comprueba e instala con los siguientes comandos.</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version
+<span class="k">python3</span> -m pip install pillow</pre></div>
+    <div class="card"><h3>Un Chromium</h3><p>Chromium es un navegador; el sistema lo usa sin ventana, en segundo plano, para dibujar cada imagen. Si no lo tienes, el primer comando lo instala. En Mac con Google Chrome instalado, no hace falta hacer nada: el sistema lo encuentra automáticamente.</p><pre><span class="k">npx</span> playwright install chromium
 <span class="k">export</span> CHROME=<span class="s">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span></pre></div>
-    <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code ejecuta la skill (instalación en <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). Codex (el programa de terminal de OpenAI: <code>npm i -g @openai/codex</code> y luego <code>codex login</code>) diseña la portada con tu cuenta de ChatGPT. Es opcional: sin él, se crea una portada solo con texto.</p><pre><span class="c"># comprobar</span>
-<span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
-    <div class="card"><h3>Solo para publicar: gh + Metricool</h3><p>Metricool (programador de publicaciones) necesita las imágenes en un enlace público: el script las coloca en un repositorio público tuyo en GitHub mediante <code>gh</code>. Metricool debe estar conectado a Claude Code como conector (MCP: la forma en que Claude usa un servicio externo, configurada con <code>/mcp</code>). Si no, descarga las imágenes y publícalas desde el celular.</p><pre><span class="c"># instalar gh: cli.github.com · comprobar:</span>
-<span class="k">gh</span> auth status</pre></div>
+    <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code ejecuta la skill (se instala desde <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). Codex (el programa de terminal de OpenAI: <code>npm i -g @openai/codex</code> y después <code>codex login</code>) diseña la portada con tu cuenta de ChatGPT. Es opcional: sin Codex, se genera una portada solo con letras.</p><pre><span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
+    <div class="card"><h3>Solo para publicar: gh + Metricool (Linux o WSL)</h3><p>La publicación automática funciona en Linux o WSL; en Mac, publica las imágenes manualmente. Metricool (programador de publicaciones) necesita que las imágenes estén en un enlace público: el script las coloca en un repositorio público tuyo en GitHub mediante <code>gh</code>. Metricool debe estar conectado a Claude Code como conector (MCP: la forma de que Claude use un servicio externo, configurada con <code>/mcp</code>). Si no, descarga las imágenes y publícalas desde el celular.</p><pre><span class="k">gh</span> auth status</pre></div>
   </div>
 </div></section>
 
 <section id="guia"><div class="wrap">
   <span class="chip">Guía de uso · paso a paso</span>
-  <h2>Desde cero hasta el primer carrusel</h2>
+  <h2>Desde cero hasta tu primer carrusel</h2>
   <p class="sub">Comandos que puedes copiar, en orden.</p>
 
   <div class="step"><div class="b">1</div><div>
-    <h3>Instala y ejecuta la autoprueba</h3>
-    <p>Descarga el proyecto, instala la única dependencia y genera un carrusel de prueba. Debe terminar con SELFTEST PASS («autoprueba superada»).</p>
+    <h3>Instala y ejecuta la prueba automática</h3>
+    <p>Descarga el proyecto, instala la única dependencia y genera un carrusel de prueba. Debe terminar con SELFTEST PASS («la prueba automática pasó»).</p>
 <pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/carrossel-inema</span> ~/projetos/carrossel-inema
 <span class="k">cd</span> ~/projetos/carrossel-inema
-<span class="k">bash</span> setup.sh   <span class="c"># ... SELFTEST PASS</span></pre>
+<span class="k">bash</span> setup.sh</pre>
   </div></div>
 
   <div class="step"><div class="b">2</div><div>
     <h3>Activa la skill en Claude Code y cambia la marca</h3>
-    <p>El comando crea la carpeta de skills (si no existe) y un acceso directo al proyecto. <code>PERFIL.md</code> viene con la marca de INEMA (perfil, nombre, cierre y hashtags): cámbialo todo por lo tuyo antes del primer carrusel, o pídele a Claude: «completa PERFIL.md conmigo».</p>
+    <p>El comando crea la carpeta de skills (si no existe) y un acceso directo al proyecto. <code>PERFIL.md</code> viene con la marca de INEMA (perfil, nombre, cierre y hashtags): reemplázalo todo por tu marca antes del primer carrusel o pídele a Claude: «rellena el PERFIL.md conmigo».</p>
 <pre><span class="k">mkdir -p</span> ~/.claude/skills
 <span class="k">ln -s</span> ~/projetos/carrossel-inema ~/.claude/skills/carrossel-inema</pre>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Pide el carrusel</h3>
-    <p>En Claude Code, indica el tema. Te propone 3 títulos para la portada y te muestra el guion antes de generar cualquier imagen. La skill crea automáticamente la carpeta del trabajo en <code>~/projetos/output/carrossel-inema/&lt;data&gt;-&lt;tema&gt;/</code>, con <code>roteiro.json</code> (el texto de cada diapositiva), <code>legenda.txt</code> (el texto que acompaña la publicación) y la carpeta <code>slides/</code> con las imágenes.</p>
-<pre><span class="s">haz un carrusel sobre agentes de IA para pequeñas empresas</span>
-<span class="c"># o: ¿cuál debería ser el próximo carrusel?</span></pre>
+    <p>En Claude Code, di el tema (o pregunta «¿cuál debería ser el próximo carrusel?»). Propone 3 títulos para la portada y muestra el guion antes de generar cualquier imagen. La skill crea automáticamente la carpeta del trabajo en <code>~/projetos/output/carrossel-inema/&lt;fecha&gt;-&lt;tema&gt;/</code>, con <code>roteiro.json</code> (el texto de cada diapositiva), <code>legenda.txt</code> (el texto que acompaña la publicación) y la carpeta <code>slides/</code> con las imágenes.</p>
+<pre><span class="s">haz un carrusel sobre agentes de IA para pequeñas empresas</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Portada, imágenes y revisión (la skill se encarga)</h3>
-    <p>La skill ejecuta estos comandos por ti. Están aquí para quien quiera ejecutarlos a mano, desde la carpeta del proyecto; <code>PASTA</code> es la carpeta del paso 3. Codex diseña la portada con el título incorporado; la skill te pide revisar el texto de la imagen y solo continúa después de que des el visto bueno.</p>
+    <p>La skill ejecuta estos comandos por ti. Están aquí para quien quiera ejecutarlos manualmente, desde la carpeta del proyecto; <code>PASTA</code> es la carpeta del paso 3. Codex diseña la portada con el título incluido; la skill te pide que revises el texto de la imagen y solo continúa después de que des tu OK.</p>
 <pre><span class="k">cd</span> ~/projetos/carrossel-inema
 <span class="k">PASTA</span>=~/projetos/output/carrossel-inema/2026-11-01-agentes
 <span class="k">python3</span> scripts/capa.py $PASTA/roteiro.json --estilo 3d --cena <span class="s">"brazos robóticos organizando papeles"</span>
 <span class="k">node</span> scripts/render.mjs $PASTA/roteiro.json $PASTA/slides
-<span class="k">python3</span> scripts/checa.py $PASTA/slides $PASTA/roteiro.json   <span class="c"># 0 error(es)</span></pre>
+<span class="k">python3</span> scripts/checa.py $PASTA/slides $PASTA/roteiro.json</pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Aprueba</h3>
-    <p>Te muestra las imágenes en paralelo y el texto de la publicación. Apruebas o pides ajustes; cada ajuste se convierte en una regla en PERFIL.md. Las imágenes terminadas quedan en <code>$PASTA/slides/</code> y ya se pueden publicar manualmente.</p>
-<pre><span class="s">aprobado</span>   <span class="c"># o: "título de portada más corto"</span></pre>
+    <p>Muestra las imágenes una al lado de la otra y el texto de la publicación. Apruebas o pides un ajuste; cada ajuste se convierte en una regla en PERFIL.md. Las imágenes finales quedan en <code>$PASTA/slides/</code> y ya puedes publicarlas manualmente.</p>
+<pre><span class="s">aprobado</span></pre>
   </div></div>
 
   <div class="step"><div class="b">6</div><div>
     <h3>Publica con Metricool (opcional, aún no probado)</h3>
-    <p>Viene configurado para la cuenta de INEMA. Para la tuya, define antes tu repositorio público en GitHub, el nombre del conector de Metricool y tu marca en Metricool; el script usa estos tres datos en las dos líneas. El modo predeterminado es borrador: nada se publica sin <code>AO_VIVO=1</code>.</p>
-<pre><span class="k">export</span> REPO=tu/tu-repo CONECTOR=metricool MARCA=tu.marca
-<span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt              <span class="c"># borrador</span>
-<span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt    <span class="c"># en directo</span></pre>
+    <p>Para el primer uso, lo más sencillo es descargar las imágenes de <code>$PASTA/slides/</code> y publicarlas desde el celular. La publicación automática aún no se ha probado y viene configurada para la cuenta de INEMA. Para usarla con la tuya, define antes tu repositorio público en GitHub, el nombre del conector de Metricool y tu marca en Metricool; el script usa estos tres datos en las dos líneas. De forma predeterminada, crea un borrador: nada se publica sin <code>AO_VIVO=1</code>.</p>
+<pre><span class="k">export</span> REPO=voce/seu-repo CONECTOR=metricool MARCA=sua.marca
+<span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt
+<span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt</pre>
   </div></div>
 </div></section>
 
@@ -247,9 +242,9 @@
   <h2>Un carrusel creado por el sistema</h2>
   <p class="sub">Tema «6 tareas tediosas que un agente de IA ya hace por ti»: portada de Codex, 6 diapositivas y cierre.</p>
   <div class="ex">
-    <figure><img src="../assets/exemplo/01-capa.jpg" alt="Portada con el título diseñado por Codex y brazos robóticos organizando papeles" loading="lazy"><figcaption>Portada: título integrado en la imagen, luz neutra, número y tema mencionados por su nombre.</figcaption></figure>
+    <figure><img src="../assets/exemplo/01-capa.jpg" alt="Portada con el título diseñado por Codex y brazos robóticos organizando papeles" loading="lazy"><figcaption>Portada: título integrado en la imagen, luz neutra, número y tema escritos con claridad. (ejemplo generado en portugués)</figcaption></figure>
     <figure><img src="../assets/exemplo/05-slide.jpg" alt="Diapositiva 4: programar en un sistema antiguo" loading="lazy"><figcaption>Diapositiva: número grande, título, texto corto con el fragmento clave en negrita.</figcaption></figure>
-    <figure><img src="../assets/exemplo/08-fecho.jpg" alt="Diapositiva final con la palabra AGENTE destacada" loading="lazy"><figcaption>Cierre: la palabra que se debe comentar, en grande.</figcaption></figure>
+    <figure><img src="../assets/exemplo/08-fecho.jpg" alt="Diapositiva final con la palabra AGENTE destacada" loading="lazy"><figcaption>Cierre: la palabra que deben comentar, en grande.</figcaption></figure>
     <figure><img src="../assets/exemplo/story-1.jpg" alt="Story que muestra la portada e invita a ver la publicación" loading="lazy"><figcaption>Story 1 de 3: muestra la portada y lleva a la persona a la publicación.</figcaption></figure>
   </div>
   <figure style="margin:22px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)"><img src="../assets/prancha-feed.jpg" alt="Las 8 imágenes del carrusel una al lado de la otra" loading="lazy" style="width:100%;display:block"></figure>
@@ -259,9 +254,9 @@
   <span class="chip">Hoja de ruta</span>
   <h2>Qué viene después</h2>
   <p class="sub">Lo que ya funciona y lo que falta.</p>
-  <div class="phase"><div class="tag">1.0 ✔</div><div class="d"><strong>Guion, portada, renderizado y revisión</strong><span>Portada con Codex, diapositivas y stories, informe de texto cortado y portada amarillenta, autoprueba.</span></div></div>
-  <div class="phase"><div class="tag">Siguiente</div><div class="d"><strong>Primera publicación real</strong><span>Probar publicar.sh como borrador en Metricool y ajustar el formato del carrusel y de las stories.</span></div></div>
-  <div class="phase"><div class="tag">Después</div><div class="d"><strong>Tema elegido a partir de datos</strong><span>Conectarlo al radar de temas del día y al informe de lo que mejor funcionó en nuestros canales.</span></div></div>
+  <div class="phase"><div class="tag">1.0 ✔</div><div class="d"><strong>Guion, portada, renderizado y revisión</strong><span>Portada con Codex, diapositivas y stories, informe de texto cortado y de portada amarillenta, prueba automática.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Primera publicación real</strong><span>Probar publicar.sh como borrador en Metricool y ajustar el formato de carrusel y de story.</span></div></div>
+  <div class="phase"><div class="tag">Después</div><div class="d"><strong>Tema elegido con datos</strong><span>Conectarlo al radar de temas del día y al informe de lo que mejor funcionó en nuestros canales.</span></div></div>
 </div></section>
 
 <footer>

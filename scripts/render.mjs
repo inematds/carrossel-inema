@@ -17,11 +17,13 @@ fs.mkdirSync(saida, { recursive: true });
 
 function acharChrome() {
   if (process.env.CHROME && fs.existsSync(process.env.CHROME)) return process.env.CHROME;
-  const base = path.join(os.homedir(), ".cache/ms-playwright");
+  // Linux guarda o Chromium do Playwright em ~/.cache; o Mac, em ~/Library/Caches
+  for (const base of [path.join(os.homedir(), ".cache/ms-playwright"), path.join(os.homedir(), "Library/Caches/ms-playwright")]) {
   const dirs = fs.existsSync(base) ? fs.readdirSync(base).filter(d => /^chromium-\d+$/.test(d)).sort().reverse() : [];
   for (const d of dirs) for (const sub of ["chrome-linux-arm64/chrome", "chrome-linux64/chrome", "chrome-linux/chrome", "chrome-mac/Chromium.app/Contents/MacOS/Chromium", "chrome-mac-arm64/Chromium.app/Contents/MacOS/Chromium"]) {
     const p = path.join(base, d, sub);
     if (fs.existsSync(p)) return p;
+  }
   }
   for (const p of ["/usr/bin/chromium", "/usr/bin/chromium-browser", "/usr/bin/google-chrome", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"]) if (fs.existsSync(p)) return p;
   throw new Error("Chromium não encontrado: rode `npx playwright install chromium` ou defina CHROME=/caminho/do/chrome");
