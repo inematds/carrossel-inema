@@ -1,6 +1,6 @@
 ---
 name: carrossel-inema
-description: Carrossel de Instagram/Facebook/TikTok no padrão INEMA — escolhe o tema, escreve o roteiro (capa com número + 5–10 slides de uma ideia cada + fecho "comenta PALAVRA" + 3 stories), gera a capa pelo Codex, renderiza 1080x1350 e 1080x1920, confere sozinho, mostra cada imagem a quem pediu e só posta no Metricool depois do OK. Gatilho: "carrossel", "faz um carrossel sobre X", "qual o próximo carrossel", "slides para o Instagram", "posta o carrossel".
+description: Carrossel de Instagram e TikTok (imagens servem no Facebook) no padrão INEMA — escolhe o tema, escreve o roteiro (capa com número + 5–10 slides de uma ideia cada + fecho "comenta PALAVRA" + 3 stories), gera a capa pelo Codex, renderiza 1080x1350 e 1080x1920, confere sozinho, mostra cada imagem a quem pediu e só posta no Metricool depois do OK. Gatilho: "carrossel", "faz um carrossel sobre X", "qual o próximo carrossel", "slides para o Instagram", "posta o carrossel".
 ---
 
 # carrossel-inema
