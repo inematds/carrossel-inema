@@ -1,8 +1,16 @@
 # carrossel-inema
 
-**Carrossel de Instagram, Facebook e TikTok pronto em minutos, no padrão INEMA.** Você diz o tema; o Claude Code escreve o roteiro, o Codex desenha a capa, um navegador sem janela transforma tudo em imagens 1080×1350 (feed) e 1080×1920 (stories), o próprio sistema confere se nada estourou e só posta depois do seu "aprovado".
+[![carrossel-inema](guia/assets/banner.jpg)](https://inematds.github.io/carrossel-inema/guia/)
 
-🇧🇷 Português · [🇺🇸 English](README.en.md) · [🇪🇸 Español](README.es.md) · Guia: https://inematds.github.io/carrossel-inema/guia/
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
+
+## O que é
+
+O carrossel-inema é uma skill (um conjunto de instruções e scripts) para o Claude Code que faz carrosséis de Instagram e TikTok; as mesmas imagens servem para o Facebook. Serve para quem quer postar com frequência sem abrir programa de design. Você dá o tema; ele entrega a capa, de 5 a 10 slides com uma ideia cada, o slide final com "comenta PALAVRA" e 3 stories, todos no tamanho certo. Antes de mostrar, ele confere se algum texto ficou cortado ou pequeno demais. Para usar, precisa de um computador Linux ou Mac (no Windows, pelo WSL, o Linux que roda dentro do Windows) com Node.js, Python e o Claude Code; para a capa com arte, o Codex logado na sua conta do ChatGPT. Os textos saem em português por padrão; o idioma se troca no PERFIL.md.
+
+## 📖 Guia de uso
+
+Guia completo (landing + passo a passo): **https://inematds.github.io/carrossel-inema/guia/**
 
 ## O que sai
 
@@ -22,10 +30,13 @@ Precisa de Linux ou Mac com Node.js 18+, Python 3 e um Chromium (o do Playwright
 git clone https://github.com/inematds/carrossel-inema ~/projetos/carrossel-inema
 cd ~/projetos/carrossel-inema
 bash setup.sh                     # tem que terminar em SELFTEST PASS
+mkdir -p ~/.claude/skills
 ln -s "$PWD" ~/.claude/skills/carrossel-inema   # liga a skill no Claude Code
 ```
 
-Se o Chromium não for achado: `CHROME=/caminho/do/chrome bash setup.sh`.
+Sem Chromium na máquina: `npx playwright install chromium` (ou, no Mac, `export CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`).
+
+**Troque a marca:** o `PERFIL.md` vem com a marca do INEMA (@inema.tds, Nei Maldaner, hashtags). Edite antes do primeiro carrossel.
 
 ## Usar
 
@@ -52,7 +63,7 @@ python3 scripts/capa.py meu/roteiro.json --estilo 3d --cena "..." # capa com art
 | 5 | Render | `node scripts/render.mjs <roteiro.json> <pasta>/slides` | ⚙️ |
 | 6 | Checagem | `python3 scripts/checa.py <pasta>/slides` (0 erro) + olhar a prancha | ⚙️ + 🧠 |
 | 7 | Aprovação | Nei aprova; cada correção vira regra no `PERFIL.md` | 🧠 |
-| 8 | Postar | `scripts/publicar.sh <slides> <legenda.txt>` (rascunho) · `AO_VIVO=1 …` (ao vivo) → Metricool inematds (IG + TikTok) | 🤖 |
+| 8 | Postar | `scripts/publicar.sh <slides> <legenda.txt>` (rascunho) · `AO_VIVO=1 …` (ao vivo) → Metricool inematds (Instagram + TikTok; Facebook à mão) | 🤖 |
 
 ## Arquivos
 
@@ -69,6 +80,7 @@ python3 scripts/capa.py meu/roteiro.json --estilo 3d --cena "..." # capa com art
 
 ## Limites
 
+- **`publicar.sh` vem configurado para a conta do INEMA** (repo `inematds/carrossel-inema`, conector `metricool-inematds`, marca `inema.tds`). Para a sua: `export REPO=voce/repo CONECTOR=<conector do Metricool> MARCA=<marca>` antes de rodar (vale para o rascunho e para o `AO_VIVO=1`); precisa do `gh` logado e do Metricool ligado ao Claude Code (MCP).
 - **`publicar.sh` ainda não foi testado.** O formato de carrossel com várias imagens e de story no Metricool não foi conferido; o primeiro uso deve ser como rascunho, com o Nei olhando o planner.
 - Stories pelo Metricool dependem da conta Instagram ser profissional.
 - Fontes Sora e Inter: licença SIL Open Font License, incluídas em `assets/fonts/`.

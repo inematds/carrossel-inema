@@ -1,6 +1,9 @@
 # Changelog
 
 ## 1.0.0 — 01/11/2026
+- Guia PT/EN/ES em guia/ (GitHub Pages), READMEs EN/ES, capa do catálogo.
+- `publicar.sh` aceita REPO, CONECTOR e MARCA (conta própria). Render acha o Chrome do Mac; setup sugere `npx playwright install chromium`.
+- PERFIL.md com idioma dos textos.
 - Render HTML → PNG (capa, 5–10 slides, fecho, 3 stories) com Chromium sem janela; fontes Sora e Inter embutidas.
 - Encolhe a letra até 30% quando o texto não cabe e anota no `relatorio.json`.
 - `checa.py`: tamanhos, texto estourado, letra < 24 px, imagem quebrada, palavra do comentário, hype, número sem fonte, capa sem número.

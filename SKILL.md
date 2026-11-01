@@ -5,7 +5,7 @@ description: Carrossel de Instagram/Facebook/TikTok no padrão INEMA — escolhe
 
 # carrossel-inema
 
-Leia `PERFIL.md` antes de tudo, toda vez. Ele tem a marca, as contas, o tom e as **regras aprendidas** (cada correção do Nei vira uma linha lá).
+Leia `PERFIL.md` antes de tudo, toda vez. Escreva no idioma que ele indicar. Ele tem a marca, as contas, o tom e as **regras aprendidas** (cada correção do Nei vira uma linha lá).
 
 ## Os 7 passos (sempre nesta ordem)
 

@@ -17,7 +17,7 @@ for f in Sora.ttf Inter-400.ttf Inter-500.ttf Inter-700.ttf; do
 done
 
 SAIDA="$(mktemp -d /tmp/carrossel-selftest.XXXX)"
-node scripts/render.mjs exemplos/teste/roteiro.json "$SAIDA" >/dev/null || falha "render falhou (Chromium? defina CHROME=/caminho)"
+node scripts/render.mjs exemplos/teste/roteiro.json "$SAIDA" >/dev/null || falha "render falhou (sem Chromium? rode: npx playwright install chromium)"
 python3 scripts/checa.py "$SAIDA" exemplos/teste/roteiro.json || falha "checagem acusou erro em $SAIDA"
 n=$(ls "$SAIDA"/*.png | wc -l)
 [ "$n" -eq 11 ] || falha "esperava 11 imagens (capa + 6 + fecho + 3 stories), saiu $n"

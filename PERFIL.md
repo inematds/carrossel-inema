@@ -1,11 +1,12 @@
 # PERFIL — carrossel-inema
 
-Lido pela skill antes de todo carrossel. Edite à vontade; a skill escreve aqui as regras que o Nei ensinar.
+Lido pela skill antes de todo carrossel. **Vem preenchido com a marca do INEMA: se você não é o INEMA, troque marca, perfil, quem fala, fecho e hashtags** (ou peça ao Claude: "preencha o PERFIL.md comigo"). A skill escreve aqui as regras que você ensinar.
 
 ## Marca
 - Nome na arte: **INEMA.CLUB**
 - Perfil: **@inema.tds** (Instagram + TikTok, Metricool "metritds")
 - Quem fala: Nei Maldaner — 40 anos de tecnologia, ensina IA na prática, de graça, para gente comum.
+- Idioma dos textos: **português do Brasil** (troque para gerar em outro idioma)
 - Tom: "você", frase curta, verbo concreto, prova real, sem hype.
 - Fecho padrão: "Comenta **PALAVRA** que eu te mando o guia grátis."
 - Guias grátis: páginas do inema.club (cursos, guias, projetos).

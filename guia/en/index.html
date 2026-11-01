@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>carrossel-inema — Instagram carousels ready to post, from topic to publishing</title>
+<meta name="description" content="A Claude Code skill that creates Instagram, Facebook, and TikTok carousels: scripts, Codex-designed covers, 1080x1350 slides, stories, and a final check before posting.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/carrossel-inema/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/carrossel-inema/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/carrossel-inema/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;height:auto;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🎠</span> carrossel-inema</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">What it is</a>
+    <a class="sec" href="#fluxo">How it works</a>
+    <a class="sec" href="#guia">User guide</a>
+    <a class="sec" href="#exemplos">Examples</a>
+    <a class="sec" href="#roadmap">Roadmap</a>
+    <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    <a class="btn" href="https://github.com/inematds/carrossel-inema" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Skill for Claude Code · Instagram · TikTok</span>
+      <h1>Your carousel, <span class="amb">ready</span>, from topic to posting</h1>
+      <p class="lead">You provide the topic. Claude writes the script, Codex designs the cover, the system builds the slides and stories, and checks everything before you approve it.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Start the guide</a>
+        <a class="btn ghost" href="https://github.com/inematds/carrossel-inema" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-en.jpg" alt="carrossel-inema banner: a carousel ready to post, from topic to publishing"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">In short</span>
+  <p>carrossel-inema is a skill (a set of instructions and scripts) for Claude Code that creates Instagram and TikTok carousels; the same images work for Facebook. It is for people who want to post regularly without opening a design program. You provide the topic; it delivers a cover, 5 to 10 slides with one idea each, a final slide saying “comment WORD,” and 3 stories, all in the right size. Before showing them to you, it checks whether any text is cut off or too small. To use it, you need a Linux or Mac computer (on Windows, use WSL, the Linux environment that runs inside Windows) with Node.js, Python, and Claude Code; for an illustrated cover, you also need Codex signed in to your ChatGPT account. Text is in Portuguese by default; change the language in PERFIL.md.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">What it is</span>
+  <h2>A complete carousel without opening Canva</h2>
+  <p class="sub">Script, artwork, slides, stories, and checks in one place. You just approve it.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="The six main stages: topic, script, cover, slides, stories, and posting" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🖼️ A cover that stops the scroll</h3><p>Codex designs the cover with the title written into the image. The check requires a number, the topic spelled out, and no more than 4 lines; it also checks whether the photo looks yellowish.</p></div>
+    <div class="card"><h3>🧱 Clean slides, one idea each</h3><p>Large number, title, 2 or 3 sentences, and the key passage in bold, sized for the feed (1080×1350). If the text does not fit, the font shrinks and the report flags it.</p></div>
+    <div class="card"><h3>✅ Nothing goes live without you</h3><p>It shows you all the images and the caption, then waits for your “approved.” Every correction you make becomes a rule in PERFIL.md, so you do not have to repeat it.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">How it works</span>
+  <h2>From topic to post in 8 steps</h2>
+  <p class="sub">Two of these steps are checkpoints: the automatic check and your approval. The steps involving you happen in the conversation with Claude; everything else is a script.</p>
+  <div class="flow">
+    <span>Topic</span><span class="arr">→</span>
+    <span>Keyword + free guide</span><span class="arr">→</span>
+    <span>Script (roteiro.json)</span><span class="arr">→</span>
+    <span>Cover by Codex</span><span class="arr">→</span>
+    <span>PNG rendering</span><span class="arr">→</span>
+    <span>Check</span><span class="arr">→</span>
+    <span>Your approval</span><span class="arr">→</span>
+    <span>Post on Metricool</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requirements</span>
+  <h2>What needs to be on your computer</h2>
+  <p class="sub">No paid API key needed. Artwork is created through your ChatGPT subscription.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Node.js 18+ (with npm) and Python 3</h3><p>Node.js is the program that builds the images; npm installs the package it uses. Python runs the check and calls Codex.</p><pre><span class="c"># check</span>
+<span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version</pre></div>
+    <div class="card"><h3>Chromium</h3><p>Chromium is a browser; the system uses it headlessly, in the background, to draw each image. If you do not have it, the first command installs it. On Mac, Google Chrome works too.</p><pre><span class="c"># install (Linux, Mac, or WSL)</span>
+<span class="k">npx</span> playwright install chromium
+<span class="c"># or use the installed Chrome on Mac</span>
+<span class="k">export</span> CHROME=<span class="s">"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"</span></pre></div>
+    <div class="card"><h3>Claude Code + Codex</h3><p>Claude Code runs the skill (install it from <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a>). Codex (OpenAI’s terminal program: <code>npm i -g @openai/codex</code>, then <code>codex login</code>) designs the cover through your ChatGPT account. It is optional: without it, the cover uses text only.</p><pre><span class="c"># check</span>
+<span class="k">claude</span> --version && <span class="k">codex</span> --version</pre></div>
+    <div class="card"><h3>For posting only: gh + Metricool</h3><p>Metricool (a post scheduler) needs the images at a public link: the script puts them in your public GitHub repository using <code>gh</code>. Metricool must be connected to Claude Code as a connector (MCP: the way Claude uses an external service, configured with <code>/mcp</code>). Without this, download the images and post from your phone.</p><pre><span class="c"># install gh: cli.github.com · check:</span>
+<span class="k">gh</span> auth status</pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">User guide · step by step</span>
+  <h2>From scratch to your first carousel</h2>
+  <p class="sub">Copyable commands, in order.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Install it and run the self-test</h3>
+    <p>Downloads the project, installs its only dependency, and generates a test carousel. It should finish with SELFTEST PASS (“self-test passed”).</p>
+<pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/carrossel-inema</span> ~/projetos/carrossel-inema
+<span class="k">cd</span> ~/projetos/carrossel-inema
+<span class="k">bash</span> setup.sh   <span class="c"># ... SELFTEST PASS</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Enable the skill in Claude Code and change the brand</h3>
+    <p>The command creates the skills folder (if it does not exist) and a shortcut to the project. <code>PERFIL.md</code> comes with INEMA branding (profile, name, sign-off, and hashtags): replace everything with your own before the first carousel, or ask Claude: “fill out PERFIL.md with me.”</p>
+<pre><span class="k">mkdir -p</span> ~/.claude/skills
+<span class="k">ln -s</span> ~/projetos/carrossel-inema ~/.claude/skills/carrossel-inema</pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Request a carousel</h3>
+    <p>In Claude Code, tell it the topic. It suggests 3 cover titles and shows you the script before generating any images. The skill creates the work folder at <code>~/projetos/output/carrossel-inema/&lt;date&gt;-&lt;topic&gt;/</code>, with <code>roteiro.json</code> (the text for each slide), <code>legenda.txt</code> (the text that accompanies the post), and a <code>slides/</code> folder containing the images.</p>
+<pre><span class="s">make a carousel about AI agents for small businesses</span>
+<span class="c"># or: what should the next carousel be about?</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Cover, images, and check (handled by the skill)</h3>
+    <p>The skill runs these commands for you. They are shown here for anyone who wants to run them manually from inside the project folder; <code>PASTA</code> is the folder from step 3. Codex designs the cover with the title on it; the skill asks you to check the artwork text and proceeds only after you say OK.</p>
+<pre><span class="k">cd</span> ~/projetos/carrossel-inema
+<span class="k">PASTA</span>=~/projetos/output/carrossel-inema/2026-11-01-agentes
+<span class="k">python3</span> scripts/capa.py $PASTA/roteiro.json --estilo 3d --cena <span class="s">"robotic arms organizing papers"</span>
+<span class="k">node</span> scripts/render.mjs $PASTA/roteiro.json $PASTA/slides
+<span class="k">python3</span> scripts/checa.py $PASTA/slides $PASTA/roteiro.json   <span class="c"># 0 error(s)</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Approve it</h3>
+    <p>It shows the slides side by side and the caption. Approve it or request a change; each change becomes a rule in PERFIL.md. The finished images are in <code>$PASTA/slides/</code> and are ready to post manually.</p>
+<pre><span class="s">approved</span>   <span class="c"># or: "shorter cover title"</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Post through Metricool (optional, not tested yet)</h3>
+    <p>It is configured for the INEMA account. For yours, first set your public GitHub repository, the name of the Metricool connector, and your brand in Metricool; the script uses these three details in the two lines below. The default is draft: nothing goes live without <code>AO_VIVO=1</code>.</p>
+<pre><span class="k">export</span> REPO=you/your-repo CONECTOR=metricool MARCA=your.brand
+<span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt              <span class="c"># draft</span>
+<span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt    <span class="c"># live</span></pre>
+  </div></div>
+</div></section>
+
+<section id="exemplos"><div class="wrap">
+  <span class="chip">Examples</span>
+  <h2>A carousel created by the system</h2>
+  <p class="sub">Topic: “6 boring tasks an AI agent already does for you”: Codex cover, 6 slides, and a closing slide.</p>
+  <div class="ex">
+    <figure><img src="../assets/exemplo/01-capa.jpg" alt="Cover with the title designed by Codex and robotic arms organizing papers" loading="lazy"><figcaption>Cover: title drawn into the artwork, neutral lighting, number, and topic spelled out.</figcaption></figure>
+    <figure><img src="../assets/exemplo/05-slide.jpg" alt="Slide 4: scheduling in an old system" loading="lazy"><figcaption>Slide: large number, title, short text with the key passage in bold.</figcaption></figure>
+    <figure><img src="../assets/exemplo/08-fecho.jpg" alt="Final slide with the word AGENTE highlighted" loading="lazy"><figcaption>Closing slide: the word to comment, in large type.</figcaption></figure>
+    <figure><img src="../assets/exemplo/story-1.jpg" alt="Story showing the cover and directing viewers to the post" loading="lazy"><figcaption>Story 1 of 3: shows the cover and takes viewers to the post.</figcaption></figure>
+  </div>
+  <figure style="margin:22px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)"><img src="../assets/prancha-feed.jpg" alt="All 8 carousel slides side by side" loading="lazy" style="width:100%;display:block"></figure>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Roadmap</span>
+  <h2>What comes next</h2>
+  <p class="sub">What works already and what is still to come.</p>
+  <div class="phase"><div class="tag">1.0 ✔</div><div class="d"><strong>Script, cover, rendering, and checks</strong><span>Codex-designed cover, slides and stories, reports for cut-off text and yellowish covers, and self-test.</span></div></div>
+  <div class="phase"><div class="tag">Next</div><div class="d"><strong>First real post</strong><span>Test publicar.sh as a draft in Metricool and adjust the carousel and story formats.</span></div></div>
+  <div class="phase"><div class="tag">Later</div><div class="d"><strong>Data-driven topic selection</strong><span>Connect it to the daily topic radar and the report on what has worked best across our channels.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Node.js + Chromium</div><div class="pill">Python</div><div class="pill">Codex image_gen</div><div class="pill">Metricool</div>
+    <p style="margin-top:18px">carrossel-inema · MIT licensed code ·
+      <a href="https://github.com/inematds/carrossel-inema">inematds/carrossel-inema</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='carrossel-inema-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>
