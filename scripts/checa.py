@@ -21,6 +21,17 @@ def tamanho_png(p: Path):
     return struct.unpack(">II", cab[16:24])
 
 
+def amarelado(p: Path):
+    """(R+G)/2 - B médio: foto neutra fica de 0 a 10. Sem Pillow, não mede."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    im = Image.open(p).convert("RGB").resize((108, 135))
+    px = list(im.getdata())
+    return sum((r + g) / 2 - b for r, g, b in px) / len(px)
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -71,8 +82,15 @@ def main():
         if roteiro.get("assunto") and roteiro["assunto"].lower() not in texto_capa.lower():
             avisos.append(f"capa não cita o assunto '{roteiro['assunto']}' pelo nome")
     else:
-        if not (roteiro_p.parent / capa["imagem"]).exists():
+        arte = roteiro_p.parent / capa["imagem"]
+        if not arte.exists():
             erros.append(f"capa aponta para {capa['imagem']}, que não existe")
+        else:
+            am = amarelado(arte)
+            if am is not None and am > 25 and not capa.get("cor_livre"):
+                erros.append(f"capa amarelada ({am:.0f}; limite 25): gerar de novo com luz neutra ou marcar capa.cor_livre=true")
+            elif am is not None and am > 18:
+                avisos.append(f"capa puxando para o amarelo ({am:.0f}; ideal até 18)")
         if not capa.get("texto_conferido"):
             avisos.append("capa com arte gerada: conferir o texto desenhado e marcar capa.texto_conferido=true")
 
