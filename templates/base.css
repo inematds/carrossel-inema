@@ -1,0 +1,71 @@
+/* Carrossel INEMA — tema escuro, Sora nos títulos, Inter no corpo, amarelo #FACC15 */
+@font-face { font-family: Sora; font-weight: 100 800; src: url("{{FONTS}}/Sora.ttf"); }
+@font-face { font-family: Inter; font-weight: 400; src: url("{{FONTS}}/Inter-400.ttf"); }
+@font-face { font-family: Inter; font-weight: 500; src: url("{{FONTS}}/Inter-500.ttf"); }
+@font-face { font-family: Inter; font-weight: 700; src: url("{{FONTS}}/Inter-700.ttf"); }
+
+:root {
+  --bg: #0c0c10;
+  --bg2: #15151c;
+  --line: #2a2a35;
+  --ink: #f5f5f7;
+  --mute: #aab4c3;
+  --brand: #FACC15;
+  --brand-ink: #1a1206;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); }
+.page {
+  position: relative; overflow: hidden;
+  background: radial-gradient(120% 80% at 85% 0%, #1d1a10 0%, var(--bg) 55%);
+  color: var(--ink); font-family: Inter, sans-serif;
+  display: flex; flex-direction: column;
+}
+.feed  { width: 1080px; height: 1350px; padding: 88px 84px 72px; }
+.story { width: 1080px; height: 1920px; padding: 200px 90px 260px; justify-content: center; }
+
+/* topo: marca + contador */
+.top { display: flex; justify-content: space-between; align-items: center;
+  font: 700 26px/1 Sora, sans-serif; letter-spacing: .14em; color: var(--mute); text-transform: uppercase; }
+.top .marca { color: var(--brand); }
+
+/* slide de conteúdo */
+.corpo { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+.marcadagua { position: absolute; right: -40px; bottom: 40px; font: 800 760px/0.8 Sora, sans-serif;
+  color: transparent; -webkit-text-stroke: 3px rgba(250, 204, 21, .10); z-index: 0; }
+.num { font: 800 120px/1 Sora, sans-serif; color: var(--brand); }
+.num::after { content: ""; display: block; width: 120px; height: 8px; background: var(--brand); margin-top: 28px; border-radius: 4px; }
+.titulo { font: 800 88px/1.1 Sora, sans-serif; margin-top: 40px; overflow: hidden; }
+.texto  { font: 400 44px/1.45 Inter, sans-serif; color: #e4e6ec; margin-top: 36px; overflow: hidden; }
+.texto b { color: var(--ink); font-weight: 700; }
+.dados { display: flex; gap: 24px; margin-top: auto; }
+.dado { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; background: var(--bg2); }
+.dado .v { font: 800 64px/1 Sora, sans-serif; color: var(--brand); }
+.dado .r { font: 500 28px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 10px; }
+.print { margin-top: 34px; flex: 1 1 360px; min-height: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #000; }
+.print img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.fonte { font: 400 22px/1.3 Inter, sans-serif; color: var(--mute); margin-top: 18px; }
+
+/* capa sem imagem (reserva) e capa com imagem */
+.capa-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.capa-tag { position: absolute; left: 60px; bottom: 54px; background: var(--brand); color: var(--brand-ink);
+  font: 800 28px/1 Sora, sans-serif; letter-spacing: .08em; padding: 16px 22px; border-radius: 999px; }
+.capa-titulo { font: 800 112px/1.02 Sora, sans-serif; margin-top: auto; overflow: hidden; text-transform: uppercase; }
+.capa-titulo .hl { color: var(--brand); }
+.seta { display: inline-block; width: .8em; height: .8em; vertical-align: -.05em; }
+
+/* fecho e story */
+.fecho-titulo { font: 800 92px/1.06 Sora, sans-serif; margin-top: auto; overflow: hidden; }
+.fecho-texto  { font: 400 42px/1.4 Inter, sans-serif; color: #e4e6ec; margin-top: 30px; overflow: hidden; }
+.palavra { display: inline-block; margin-top: 48px; background: var(--brand); color: var(--brand-ink);
+  font: 800 84px/1 Sora, sans-serif; padding: 28px 44px; border-radius: 16px; letter-spacing: .04em; align-self: flex-start; }
+.rodape { margin-top: auto; padding-top: 40px; font: 700 28px/1 Sora, sans-serif; color: var(--mute); letter-spacing: .1em;
+  display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+.arraste { color: var(--brand); text-transform: uppercase; }
+.story { padding: 150px 90px 230px; }
+.story .titulo { font-size: 104px; }
+.story .texto { font-size: 52px; }
+.story .palavra { font-size: 104px; padding: 34px 54px; }
+.story-capa { width: 620px; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
+  box-shadow: 0 30px 80px -30px #000; transform: rotate(-3deg); margin-bottom: 30px; }
+.story-capa img { width: 100%; height: 100%; display: block; object-fit: cover; }
