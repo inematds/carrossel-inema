@@ -177,7 +177,7 @@
   <h2>O que precisa estar na máquina</h2>
   <p class="sub">Sem chave de API paga. A arte sai pela sua assinatura do ChatGPT.</p>
   <div class="grid g3">
-    <div class="card"><h3>Node.js 18+ (com npm) e Python 3</h3><p>Node.js é o programa que monta as imagens; o npm instala a peça que ele usa (versão 18 ou mais nova: no Ubuntu, <code>sudo snap install node --classic</code>; no Mac, <code>brew install node</code>; ou nodejs.org). O Python faz a checagem e chama o Codex; o Pillow, um complemento do Python, mede se a capa saiu amarelada. Confira as versões e instale o Pillow com o bloco do seu sistema. O ffmpeg é opcional (ajusta o tamanho da capa); sem ele, o aviso do autoteste pode ser ignorado.</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version</pre>
+    <div class="card"><h3>Node.js 18+ (com npm) e Python 3</h3><p>Node.js é o programa que monta as imagens; o npm instala a peça que ele usa (versão 18 ou mais nova: no Ubuntu, <code>sudo snap install node --classic</code>; no Mac, <code>brew install node</code>; ou nodejs.org). O Python faz a checagem e chama o Codex; o Pillow, um complemento do Python, mede se a capa saiu amarelada. Confira as versões e instale o Pillow com o bloco do seu sistema. O ffmpeg é recomendado: ele ajusta a capa e monta a prancha com os quadros lado a lado para você aprovar.</p><pre><span class="k">node</span> -v && <span class="k">npm</span> -v && <span class="k">python3</span> --version</pre>
 <p><b>Ubuntu</b></p><pre><span class="k">sudo apt install</span> python3-pil ffmpeg</pre>
 <p><b>Mac</b></p><pre><span class="k">python3</span> -m pip install pillow
 <span class="k">brew install</span> ffmpeg</pre></div>
@@ -220,8 +220,9 @@
 
   <div class="step"><div class="b">4</div><div>
     <h3>Capa, imagens e checagem (a skill faz)</h3>
-    <p>A skill roda estes comandos por você. Eles ficam aqui para quem quiser rodar à mão, de dentro da pasta do projeto; <code>PASTA=…</code> guarda o caminho da pasta do passo 3 num apelido, e <code>$PASTA</code> usa esse apelido. O Codex desenha a capa com o título dentro; a skill pede para você conferir o texto da arte e só segue depois do seu OK.</p>
-<pre><span class="k">cd</span> ~/projetos/carrossel-inema
+    <p>A skill roda estes comandos por você. Eles ficam aqui para quem quiser rodar à mão, de dentro da pasta do projeto; <code>PASTA=…</code> guarda o caminho da pasta do passo 3 num apelido (troque o nome do exemplo pelo da sua pasta, que o <code>ls</code> mostra), e <code>$PASTA</code> usa esse apelido. O Codex desenha a capa com o título dentro; a skill pede para você conferir o texto da arte e só segue depois do seu OK.</p>
+<pre><span class="k">ls</span> ~/projetos/output/carrossel-inema/
+<span class="k">cd</span> ~/projetos/carrossel-inema
 <span class="k">PASTA</span>=~/projetos/output/carrossel-inema/2026-11-01-agentes
 <span class="k">python3</span> scripts/capa.py $PASTA/roteiro.json --estilo 3d --cena <span class="s">"braços robóticos organizando papéis"</span>
 <span class="k">node</span> scripts/render.mjs $PASTA/roteiro.json $PASTA/slides
@@ -237,7 +238,7 @@
 
   <div class="step"><div class="b">6</div><div>
     <h3>Poste pelo Metricool (opcional, ainda não testado)</h3>
-    <p>Primeiro uso: o mais simples é baixar as imagens de <code>$PASTA/slides/</code> e postar pelo celular. A postagem automática ainda não foi testada e vem configurada para a conta do INEMA. Para a sua, defina antes (com <code>export</code>, que guarda o valor para os comandos seguintes) o seu repositório público no GitHub, o nome do conector do Metricool e a sua marca no Metricool; o script usa essas três informações nas duas linhas. O padrão é rascunho: nada vai ao ar sem <code>AO_VIVO=1</code>. Por baixo, o script abre o Claude Code sem janela para falar com o Metricool: usa a sua assinatura e pode levar alguns minutos.</p>
+    <p>Primeiro uso: o mais simples é baixar as imagens de <code>$PASTA/slides/</code> e postar pelo celular. A postagem automática ainda não foi testada e vem configurada para a conta do INEMA. Para a sua, defina antes (com <code>export</code>, que guarda o valor para os comandos seguintes) o seu repositório público no GitHub, o nome do conector do Metricool e a sua marca no Metricool; o script usa essas três informações nas duas linhas. Troque <code>voce</code> pelo seu usuário do GitHub e <code>sua.marca</code> pelo nome da marca que aparece no seletor de marcas do Metricool. O padrão é rascunho: nada vai ao ar sem <code>AO_VIVO=1</code>. Por baixo, o script abre o Claude Code sem janela para falar com o Metricool: usa a sua assinatura e pode levar alguns minutos.</p>
 <pre><span class="k">export</span> REPO=voce/carrossel-imagens CONECTOR=metricool MARCA=sua.marca
 <span class="k">scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt
 <span class="k">AO_VIVO=1 scripts/publicar.sh</span> $PASTA/slides $PASTA/legenda.txt</pre>
