@@ -80,7 +80,7 @@ python3 scripts/capa.py meu/roteiro.json --estilo 3d --cena "..." # capa com art
 
 ## Limites
 
-- **`publicar.sh` vem configurado para a conta do INEMA** (repo `inematds/carrossel-inema`, conector `metricool-inematds`, marca `inema.tds`). Para a sua: `export REPO=voce/repo CONECTOR=<conector do Metricool> MARCA=<marca>` antes de rodar (vale para o rascunho e para o `AO_VIVO=1`); precisa do `gh` logado e do Metricool ligado ao Claude Code (MCP).
+- **`publicar.sh` vem configurado para a conta do INEMA** (repo `inematds/carrossel-inema`, conector `metricool-inematds`, marca `inema.tds`). Para a sua: crie o repositório com `gh repo create carrossel-imagens --public --add-readme`, ligue o Metricool com `claude mcp add --transport http --scope user metricool https://ai.metricool.com/mcp` (e `/mcp` para entrar) e rode `export REPO=voce/carrossel-imagens CONECTOR=metricool MARCA=<marca>` antes de rodar (vale para o rascunho e para o `AO_VIVO=1`); precisa do `gh` logado e do Metricool ligado ao Claude Code (MCP).
 - **`publicar.sh` só roda no Linux ou no WSL** (usa o `date` do Linux); no Mac, poste as imagens à mão.
 - **`publicar.sh` ainda não foi testado.** O formato de carrossel com várias imagens e de story no Metricool não foi conferido; o primeiro uso deve ser como rascunho, com o Nei olhando o planner.
 - Stories pelo Metricool dependem da conta Instagram ser profissional.
