@@ -16,6 +16,7 @@ PASTA="$(realpath "$1")"; TXT="$(realpath "$2")"; QUANDO_IN="${3:-}"
 REPO="${REPO:-inematds/carrossel-inema}"
 CON="${CONECTOR:-metricool-inematds}"
 [ -s "$TXT" ] || { echo "falta a legenda"; exit 2; }
+LIMPO="$(mktemp --suffix=.txt)"; python3 $HOME/projetos/metricool-inematds/sem_links.py "$TXT" "$LIMPO" || exit 2; TXT="$LIMPO"   # sem link no Metricool (Nei, 05/11/2026)
 [ -s "$PASTA/01-capa.png" ] || { echo "falta $PASTA/01-capa.png"; exit 2; }
 python3 "$(dirname "$0")/checa.py" "$PASTA" || { echo "checagem com erro: não publico"; exit 2; }
 
