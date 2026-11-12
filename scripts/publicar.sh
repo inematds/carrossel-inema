@@ -22,6 +22,12 @@ python3 "$(dirname "$0")/checa.py" "$PASTA" || { echo "checagem com erro: não p
 
 if [ -n "$QUANDO_IN" ]; then ALVO=$(TZ=America/Sao_Paulo date -d "$QUANDO_IN" +%s); else ALVO=$(( $(date +%s) + 600 )); fi
 [ "$ALVO" -lt $(( $(date +%s) + 300 )) ] && ALVO=$(( $(date +%s) + 600 ))
+# trava de 1 h entre posts da mesma marca (Nei, 12/11/2026), só quando vai ao vivo; INTERVALO_LIVRE=1 = o Nei autorizou juntar
+TRAVA="$HOME/projetos/metricool-inematds/intervalo.py"
+if [ -n "${AO_VIVO:-}" ] && [ -f "$TRAVA" ]; then
+  ALVO=$(python3 "$TRAVA" --conector "${CONECTOR:-metricool-inematds}" --marca "${MARCA:-inema.tds}" --alvo "$ALVO") \
+    || { echo "Falhou: trava de 1 h não leu a agenda da marca; não agendei"; exit 1; }
+fi
 H_BR=$(TZ=America/Sao_Paulo date -d "@$ALVO" +%H)
 [ "$H_BR" -ge 21 ] && echo "aviso: entre 21h e 23h59 o Metricool grava 1 h depois; conferir no planner"
 QUANDO_UTC=$(date -u -d "@$ALVO" +%Y-%m-%dT%H:%M:00)
@@ -52,3 +58,4 @@ OUT=$(printf '%s' "$PEDIDO" | timeout 600 env -u ANTHROPIC_API_KEY claude -p \
 echo "$OUT" | tail -3
 echo "$OUT" | grep -q '"ok":true' && echo "Terminei: carrossel $([ "$RASC" = true ] && echo 'agendado como RASCUNHO' || echo 'agendado') para $(TZ=America/Sao_Paulo date -d "@$ALVO" '+%d/%m %H:%M')" \
   || { echo "Falhou: Metricool não agendou"; exit 1; }
+[ -n "${AO_VIVO:-}" ] && [ -f "$TRAVA" ] && python3 "$TRAVA" --registrar --conector "${CONECTOR:-metricool-inematds}" --marca "${MARCA:-inema.tds}" --alvo "$ALVO"
