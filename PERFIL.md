@@ -22,6 +22,7 @@ Lido pela skill antes de todo carrossel. **Vem preenchido com a marca do INEMA: 
 ## Últimas capas (para não repetir cena/estilo)
 | data | tema | estilo | cena |
 |---|---|---|---|
+| 2026-11-27 | Nossa história (desde 1998, de graça no RS) | foto | sala de aula do interior anos 2000, monitores de tubo, palestrante de costas |
 
 ## Regras aprendidas
 <!-- uma linha por correção do Nei: data — regra -->
