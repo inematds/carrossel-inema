@@ -43,6 +43,7 @@ Mostre ao usuário 3 opções de título da capa e o roteiro em texto ANTES de g
   - [ ] logo real do produto, se houver, visível e não coberto;
   - [ ] diferente das últimas capas (cena e estilo) — ver `PERFIL.md › últimas capas`;
   - [ ] **texto desenhado conferido letra por letra** → `capa.texto_conferido: true`.
+- História, evento ou caso real: foto REAL do Nei (Google Fotos) em `capa.foto` (+ `capa.foto_pos`, ex. `"90% center"`); o render põe o título tipográfico por cima. Nunca redesenhar a foto por IA.
 - Sem arte (pressa ou Codex fora): tirar `capa.imagem`; o render faz a capa tipográfica.
 
 ### 5. Render e checagem

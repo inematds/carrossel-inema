@@ -60,7 +60,9 @@ function capa() {
     if (hl) h = h.replace(esc(hl), `<span class="hl">${esc(hl)}</span>`);
     return h;
   });
-  return `<div class="page feed">${topo(1)}
+  // capa.foto = foto real ao fundo (nunca redesenhada por IA), título tipográfico por cima
+  const fundo = c.foto ? `<img class="capa-foto" src="${arquivo(c.foto)}" style="object-position:${esc(c.foto_pos || "center")}"><div class="capa-veu"></div>` : "";
+  return `<div class="page feed${c.foto ? " com-foto" : ""}">${fundo}${topo(1)}
     <div class="capa-titulo" data-fit>${linhas.join("<br>")} ${SETA}</div>
     <div class="rodape">${conta}</div></div>`;
 }

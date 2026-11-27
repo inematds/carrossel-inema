@@ -50,6 +50,9 @@ html, body { background: var(--bg); }
 .capa-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .capa-tag { position: absolute; left: 60px; top: 54px; background: var(--brand); color: var(--brand-ink);
   font: 800 28px/1 Sora, sans-serif; letter-spacing: .08em; padding: 16px 22px; border-radius: 999px; }
+.capa-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.capa-veu { position: absolute; inset: 0; z-index: 0; background: linear-gradient(to bottom, rgba(12,12,16,.35) 0%, rgba(12,12,16,.05) 22%, rgba(12,12,16,.15) 45%, rgba(12,12,16,.9) 66%, #0c0c10 100%); }
+.com-foto > :not(.capa-foto):not(.capa-veu) { position: relative; z-index: 1; }
 .capa-titulo { font: 800 112px/1.02 Sora, sans-serif; margin-top: auto; overflow: hidden; text-transform: uppercase; }
 .capa-titulo .hl { color: var(--brand); }
 .seta { display: inline-block; width: .8em; height: .8em; vertical-align: -.05em; }
@@ -69,3 +72,4 @@ html, body { background: var(--bg); }
 .story-capa { width: 620px; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
   box-shadow: 0 30px 80px -30px #000; transform: rotate(-3deg); margin-bottom: 30px; }
 .story-capa img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.page.feed.com-foto > .capa-titulo { position: absolute; left: 84px; right: 84px; bottom: 150px; margin: 0; font-size: 96px; }

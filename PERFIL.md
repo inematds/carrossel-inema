@@ -22,7 +22,8 @@ Lido pela skill antes de todo carrossel. **Vem preenchido com a marca do INEMA: 
 ## Últimas capas (para não repetir cena/estilo)
 | data | tema | estilo | cena |
 |---|---|---|---|
-| 2026-11-27 | Nossa história (desde 1998, de graça no RS) | foto | sala de aula do interior anos 2000, monitores de tubo, palestrante de costas |
+| 2026-11-27 | Nossa história (desde 1998, de graça no RS) | foto real (capa.foto) | palestra SISNEMA 18/3/2011, telão + palestrante, do Google Fotos do Nei |
 
 ## Regras aprendidas
 <!-- uma linha por correção do Nei: data — regra -->
+- 2026-11-27 — Carrossel de história ou caso real usa as fotos reais do Nei (Google Fotos), nunca cena gerada por IA; capa com `capa.foto` (foto ao fundo + título tipográfico), slide com `print`.
