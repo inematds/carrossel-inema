@@ -48,7 +48,7 @@ html, body { background: var(--bg); }
 
 /* capa sem imagem (reserva) e capa com imagem */
 .capa-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.capa-tag { position: absolute; left: 60px; bottom: 54px; background: var(--brand); color: var(--brand-ink);
+.capa-tag { position: absolute; left: 60px; top: 54px; background: var(--brand); color: var(--brand-ink);
   font: 800 28px/1 Sora, sans-serif; letter-spacing: .08em; padding: 16px 22px; border-radius: 999px; }
 .capa-titulo { font: 800 112px/1.02 Sora, sans-serif; margin-top: auto; overflow: hidden; text-transform: uppercase; }
 .capa-titulo .hl { color: var(--brand); }
